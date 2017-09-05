@@ -1,16 +1,17 @@
-const express = require("express");
+var express = require("express");
+var path = require("path");
 
-const articleController = require("../controllers/articleController");
+var apiRoutes = require("./apiRoutes");
 
-const router = new express.Router();
+var router = new express.Router();
 
-// Get all quotes (or optionally a specific quote with an id)
-router.get("/article/:id?", articleController.index);
-// Create a new quote using data passed in req.body
-router.post("/article", articleController.create);
-// Update an existing quote with a speicified id param, using data in req.body
-router.patch("/article/:id", articleController.update);
-// Delete a specific quote using the id in req.params.id
-router.delete("/article/:id", articleController.destroy);
+// Use the apiRoutes module for any routes starting with "/api"
+router.use("/api", apiRoutes);
+
+// Otherwise send all other requests the index.html page
+// React router will handle routing withing the app
+router.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
 
 module.exports = router;
