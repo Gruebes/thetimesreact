@@ -1,16 +1,20 @@
-import React, { Component } from "react";
-import Routes from './routes'
-import Main from './Components/Main'
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Navbar, NavItem } from 'react-materialize';
+import Search from './Components/Search'
+import Saved from './Components/Saved'
 
-class App extends Component {
-    render() {
-      return (
-        <div>
-        <Main/>
-        <Routes />
-      </div>
-      );
-    }
-  }
+const App = () =>
+  <Router>
+    <div>
+        <Navbar brand='logo' right>
+          <NavItem><Link to="/saved">Saved</Link></NavItem>
+          <NavItem><Link to="/search">Search</Link></NavItem>
+        </Navbar>
+        <Route exact path='/search' component={Search} />
+        <Route exact path='/saved' component={Saved} />
+    </div>
+  </Router>;
   
   export default App;

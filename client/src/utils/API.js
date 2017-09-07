@@ -2,8 +2,6 @@ import axios from "axios";
 
 export default {
   searchArticles: function(search, beginDate, endDate) {
-    // let URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=f815311e13884903bfe10291613d7cbf&q=${search}&begin_date=${start}&end_date=${end}`;
-
     let queryURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=f815311e13884903bfe10291613d7cbf&q=${search}`;
     
         // Ensure dates are numbers
@@ -18,10 +16,10 @@ export default {
     return axios.get(queryURL);
   },
   getArticles: function() {
-    return axios.get("/api/quotes");
+    return axios.get("/api/articles");
   },
   deleteArticle: function(_id) {
-    return axios.delete(`/api/quotes/${_id}`);
+    return axios.delete(`/api/article/${_id}`);
   },
   // Toggles a quote's favorite property in the db
   // favoriteArticle: function(article) {
@@ -30,7 +28,6 @@ export default {
   //   return axios.patch(`/api/quotes/${_id}`, { favorited });
   // },
   saveArticle: function(article) {
-    console.log('Client API log');
     return axios.post("/api/article", { article });
   },
   getTest: function() {

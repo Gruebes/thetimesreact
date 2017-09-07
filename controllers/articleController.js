@@ -21,6 +21,15 @@ module.exports = {
       res.json(err);
     });
   },
+  getSaved: function (req, res) {
+    Article.find()
+    .then(function(doc) {
+      res.json(doc);
+      // console.log(doc);
+    }).catch(function(err) {
+      res.json(err);
+    });
+  },
   // This method handles updating Articles
   update: function(req, res) {
     Article.update({

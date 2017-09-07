@@ -1,4 +1,7 @@
+// File not in use
+
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import API from "../utils/API";
 import {Navbar, NavItem} from 'react-materialize';
 
@@ -15,8 +18,8 @@ import {Navbar, NavItem} from 'react-materialize';
     render() {
       return (
       <Navbar brand='logo' right>
-        <NavItem href='get-started.html'>Getting started</NavItem>
-        <NavItem href='components.html'>Components</NavItem>
+        <NavItem><Link to="/saved">Saved</Link></NavItem>
+        <NavItem><Link to="/search">Search</Link></NavItem>
       </Navbar>
       );
     }

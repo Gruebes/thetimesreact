@@ -13,18 +13,15 @@ class Search extends Component {
   };
 
   handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
     const value = event.target.value;
     const name = event.target.name;
 
-    // Updating the input's state
     this.setState({
       [name]: value
     });
   }
 
   handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
     API.searchArticles(this.state.subject, this.state.startDate, this.state.endDate)
@@ -32,16 +29,11 @@ class Search extends Component {
       if (res.data.status === "error") {
         throw new Error(res.data.message);
       }
-      // console.log(JSON.stringify(res.data.response.docs))
       
       this.setState({ results: res.data.response.docs, error: "" });
     })
     .catch(err => this.setState({ error: err.message }));
 
-    // console.log(this.state.results)
-
-    // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
-    // alert(`Hello ${this.state.subject} ${this.state.startDate} ${this.state.endDate}`);
     this.setState({
       subject: "",
       startDate: "",
