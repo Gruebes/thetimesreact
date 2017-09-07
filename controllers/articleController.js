@@ -1,25 +1,21 @@
-var Article = require("../models/article");
+var Article = require("../models/Article");
 
 module.exports = {
-  // This method handles retrieving Articles from the db
-  index: function(req, res) {
-    var query;
-    if (req.query) {
-      query = req.query;
-    }
-    else {
-      query = req.params.id ? { _id: req.params.id } : {};
-    }
-    Article.find(query)
-      .then(function(doc) {
-        res.json(doc);
-      }).catch(function(err) {
-        res.json(err);
-      });
-  },
-  // This method handles creating new Articles
+
   create: function(req, res) {
-    Article.create(req.body).then(function(doc) {
+    console.log(`Controller log // req.body.article = ${JSON.stringify(req.body.article)}`);
+    let article = req.body.article;
+    let result = {}
+
+    result._id = article._id
+    result.title = article.headline.main;
+    result.date = article.pub_date;
+    result.url = article.web_url;
+    result.byline = article.byline.original;
+
+    let entry = new Article(result);
+    
+    entry.save().then(function(doc) {
       res.json(doc);
     }).catch(function(err) {
       res.json(err);

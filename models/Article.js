@@ -11,6 +11,11 @@ var articleSchema = new Schema({
     type: String,
     required: true
   },
+  byline: {
+    type: String,
+    required: false,
+    default: "UNKNOWN"
+  },
   url: {
     type: String,
     required: true
