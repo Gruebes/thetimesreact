@@ -15,7 +15,7 @@ router.get('/test', function(req, res) {
 // Otherwise send all other requests the index.html page
 // React router will handle routing withing the app
 router.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/public/index.html"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 module.exports = router;

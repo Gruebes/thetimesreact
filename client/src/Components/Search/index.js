@@ -52,7 +52,7 @@ class Search extends Component {
               // placeholder="Subject" 
               label="Search"
               name="subject"
-              s={6} />
+              s={12} />
             <Input 
               value={this.state.startDate}
               onChange={this.handleInputChange} 
