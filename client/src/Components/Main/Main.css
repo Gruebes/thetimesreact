@@ -1,0 +1,23 @@
+.main-buttons {
+    margin: 20px
+}
+
+.main-buttons a {
+    color: white;
+}
+
+.button-group {
+    margin: 0 auto;
+}
+
+
+.jumbotron {
+    width: 100%;
+    height: 50vh;
+    max-height: 100vw;
+    background: url(http://www.greekpost.ca/sites/default/files/2017-05/new_york_times.jpeg) center center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+  

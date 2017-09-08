@@ -43,7 +43,7 @@ class Search extends Component {
 
     render() {
       return (
-        <div>
+        <div className="container">
             <h1>Search</h1>
             <Row>
             <Input 
