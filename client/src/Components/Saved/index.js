@@ -22,7 +22,7 @@ class Saved extends Component {
 
   render() {
       return (
-        <div>
+        <div className="container">
             <h1>Saved</h1>  
             <SearchResults articles={this.state.articles} getArticles={this.getArticles()}/>            
         </div>

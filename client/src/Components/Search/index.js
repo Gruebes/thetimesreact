@@ -49,21 +49,21 @@ class Search extends Component {
             <Input 
               value={this.state.subject} 
               onChange={this.handleInputChange}
-              placeholder="Subject" 
+              // placeholder="Subject" 
               label="Search"
               name="subject"
               s={6} />
             <Input 
               value={this.state.startDate}
               onChange={this.handleInputChange} 
-              placeholder="YYYYMMDD" 
+              // placeholder="YYYYMMDD" 
               label="Start Date"
               name="startDate"
               s={6} />
             <Input 
               value={this.state.endDate}
               onChange={this.handleInputChange} 
-              placeholder="YYYYMMDD" 
+              // placeholder="YYYYMMDD" 
               label="End Date"
               name="endDate"
               s={6} />   
