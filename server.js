@@ -15,7 +15,6 @@ mongoose.Promise = bluebird;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "/public"));
 app.use("/", routes);
 
 var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
@@ -35,8 +34,11 @@ mongoose.connect(db, function(error) {
 });
 
 // Serve up static assets if in production (running on Heroku)
+console.log('node env', process.env.NODE_ENV);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+} else {
+  app.use(express.static(__dirname + "/public"));
 }
 
 app.listen(PORT, function() {
