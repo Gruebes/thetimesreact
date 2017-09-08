@@ -5,7 +5,7 @@ import { Navbar, NavItem } from 'react-materialize';
 import Search from './Components/Search'
 import Saved from './Components/Saved'
 import Main from './Components/Main'
-
+import "./App.css";
 
 const App = () =>
   <Router>

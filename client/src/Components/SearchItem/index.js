@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { CardPanel } from 'react-materialize';
 import API from "../../utils/API";
+import "./SearchItem.css";
 
 export default class SearchItem extends Component {
   saveArticle(article) {
@@ -30,13 +31,13 @@ export default class SearchItem extends Component {
               <i
               onClick={() => this.saveArticle(article)}
               // className={this.props.quote.favorited ? "fa fa-star gold" : "fa fa-star-o"}
-              className={"fa fa-star-o"}              
+              className={"item-buttons fa fa-floppy-o"}              
               aria-hidden="true"
             />
             <i
             onClick={() => this.deleteArticle(article._id)}
             // className={this.props.quote.favorited ? "fa fa-star gold" : "fa fa-star-o"}
-            className={"fa fa-trash"}              
+            className={"item-buttons fa fa-trash"}              
             aria-hidden="true"
           />
             </CardPanel>
