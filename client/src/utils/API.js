@@ -29,9 +29,6 @@ export default {
   // },
   saveArticle: function(article) {
     return axios.post("/api/article", { article });
-  },
-  getTest: function() {
-    return axios.get("http://localhost:3001/test");
   }
 };
 

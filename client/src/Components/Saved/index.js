@@ -5,9 +5,14 @@ import SearchResults from '../SearchResults/SearchResults';
 
 
 class Saved extends Component {
-  state = {
-    articles: []
+  constructor (props) {
+    super (props)
+    this.state = {
+      articles: []
+    }
+    this.getArticles = this.getArticles.bind(this)
   }
+  
 
   componentDidMount() {
     this.getArticles()
@@ -24,7 +29,7 @@ class Saved extends Component {
       return (
         <div className="container">
             <h1>Saved</h1>  
-            <SearchResults articles={this.state.articles} getArticles={this.getArticles()}/>            
+            <SearchResults articles={this.state.articles} getArticles={this.getArticles}/>            
         </div>
       );
     }

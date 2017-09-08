@@ -13,7 +13,9 @@ export default class SearchItem extends Component {
   }
 
   deleteArticle(_id) {    
-    API.deleteArticle(_id).then(this.props.getArticles);
+    API.deleteArticle(_id).then(() => {
+      this.props.getArticles()
+    });
   }
   
   render() {
