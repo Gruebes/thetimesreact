@@ -8,14 +8,13 @@ const routes = require("./routes/routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
 });
 mongoose.Promise = bluebird;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/", routes);
 
 var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
 
@@ -23,24 +22,26 @@ var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
 
 // Connect mongoose to our database
 mongoose.connect(db, function(error) {
-  // Log any errors connecting with mongoose
-  if (error) {
-    console.error(error);
-  }
-  // Or log a success message
-  else {
-    console.log("mongoose connection is successful");
-  }
+    // Log any errors connecting with mongoose
+    if (error) {
+        console.error(error);
+    }
+    // Or log a success message
+    else {
+        console.log("mongoose connection is successful");
+    }
 });
 
 // Serve up static assets if in production (running on Heroku)
 console.log('node env', process.env.NODE_ENV);
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+    app.use(express.static("client/build"));
 } else {
-  app.use(express.static(__dirname + "/public"));
+    app.use(express.static(__dirname + "/public"));
 }
+app.use("/", routes);
+
 
 app.listen(PORT, function() {
-  console.log(`🌎 ==> Server now on port ${PORT}!`);
+    console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
