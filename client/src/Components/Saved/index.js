@@ -5,12 +5,8 @@ import SearchResults from '../SearchResults/SearchResults';
 
 
 class Saved extends Component {
-  constructor (props) {
-    super (props)
-    this.state = {
-      articles: []
-    }
-    this.getArticles = this.getArticles.bind(this)
+  state = {
+    articles: []
   }
   
 
@@ -18,7 +14,7 @@ class Saved extends Component {
     this.getArticles()
   }
 
-  getArticles() {
+  getArticles = () => {
     API.getArticles().then((res) => {      
       this.setState({ articles: res.data });
       console.log(this.state.articles);      
